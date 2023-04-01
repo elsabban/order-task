@@ -1,1 +1,13 @@
-<p>products works!</p>
+<div class="container">
+  <div class="page-header w-100 d-flex justify-content-between align-items-center">
+    <h2 class="font-bold mb-0">All Products</h2>
+    <button class="btn main-btn" (click)="addOrder()">Add New Order<i class="fa-solid ms-2 fa-plus"></i></button>
+  </div>
+  <hr class="my-3">
+  <div class="row">
+    <div class="col-md-4 col-sm-6 col-12 mb-3" *ngFor="let product of products">
+      <app-product-card [productData]="product"></app-product-card>
+    </div>
+  </div>
+
+</div>

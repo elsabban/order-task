@@ -1,0 +1,49 @@
+<main class="order-detail">
+    <div class="container">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <h4>Order #{{ crntOrder?.OrderId }}</h4>
+            <a class="fw-bold back-btn text-decoration-none" routerLink="/orders"><i class="fa-solid fa-angle-left"></i> Back</a>
+          </div>
+          <div class="card-body">
+            <h5 class="fw-bolder clr-main">Customer Details</h5>
+            <p class="clr-black fw-bold">Name: <span class="clr-gray fw-bold">{{ userData?.Name }}</span></p>
+            <p class="clr-black fw-bold">Email: <span class="clr-gray fw-bold">{{ userData?.Email }}</span></p>
+            <p class="clr-black fw-bold">Phone: <span class="clr-gray fw-bold">{{ userData?.Phone }}</span></p>
+            <p class="clr-black fw-bold">Address: <span class="clr-gray fw-bold">{{ userData?.Address }}</span></p>
+            <p class="clr-black fw-bold">
+              RegisterDate:
+              <span class="clr-gray fw-bold">{{ userData?.RegisterDate | date : "dd-MMM-yyyy - h:mm a " }}</span>
+            </p>
+            <hr />
+            <h5 class="fw-bolder clr-main">Products Detail</h5>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Product Img</th>
+                  <th>Product Name</th>
+                  <th>Product Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of productsDetails">
+                  <td>
+                    <img
+                      class="img-fit product-img"
+                      [src]="item.ProductImg"
+                      [alt]="item.ProductName"
+                    />
+                  </td>
+                  <td>{{ item?.ProductName }}</td>
+                  <td>{{ item?.ProductPrice | currency }}</td>
+                  <td>{{ item?.Quantity }}</td>
+                  <td>{{ item?.Quantity * item?.ProductPrice | currency }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>

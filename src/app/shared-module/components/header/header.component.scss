@@ -1,0 +1,25 @@
+@import "./src/assets/styles/variables";
+
+nav {
+    .navbar-brand {
+        img {
+            max-width: 200px;
+        }
+    }
+    .navbar-nav {
+        
+         .nav-link {
+            color: $white;
+            transition: $transitionFast;
+            &.active {
+                color: $mainColor;
+            }
+            &:hover {
+                color: $mainColor;
+            }
+          }
+    }
+}
+.navbar-dark .navbar-nav .active > .nav-link {
+    color: #ff7300;
+  }

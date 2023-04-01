@@ -1,0 +1,74 @@
+@import "./src/assets/styles/variables";
+
+.card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  .action-btn {
+    position: absolute;
+    top:10px;
+    right: 10px;
+
+  }
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-text {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid #dee2e6;
+
+    /* Low Stock styles */
+    
+
+    .text-muted {
+      color: #6c757d;
+      span {
+        color: #000;
+      }
+    }
+  }
+
+  .badge {
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+  
+    .bg-warning {
+      background-color: #f8f9fa;
+      color: #000;
+      border: 1px solid $mainColor;
+    }
+  
+    .bg-secondary {
+      background-color: $mainColor;
+      color: #fff;
+    }
+  }
+}
+
+
+
+
+
+
