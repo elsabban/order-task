@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'src/assets/styles/variables';
 @import 'src/assets/styles/custom';
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;800;900&display=swap');
 body {
     overflow-x: hidden;
     background-color: $bgGray;
+    font-family: 'Poppins', sans-serif;
 }

@@ -1,33 +1,35 @@
 <div class="card">
-  <div class="action-btn">
-    <!-- <button [disabled]="productData.AvailablePieces == 0" class="btn btn-warning me-2">Add order</button> -->
-    <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
-  </div>
-  <img [src]="productData.ProductImg" class="card-img-top" alt="Product Image">
-  <div class="card-body">
-    <h5 class="card-title">{{ productData.ProductName }}</h5>
-    <p class="card-text clr-gray">Price: <span class="fw-bold">{{ productData.ProductPrice | currency }}</span></p>
-    <p class="card-text clr-gray">Quantity:
-      <span class="fw-bold"
-        [ngClass]="{'clr-black': productData.AvailablePieces >= 5,'clr-red': productData.AvailablePieces < 5 }">{{
-        productData.AvailablePieces }}</span>
+  <img [src]="productData.ProductImg" class="card-img-top" alt="Product Image" />
+  <div class="card-body px-md-5 px-2">
+    <h5 class="card-title  text-center">{{ productData.ProductName }}</h5>
+    <p class="card-text mb-0 d-flex justify-content-center align-items-center font-bold clr-gray">
+      Price :
+      <span class=" ms-1 fw-normal">{{ productData.ProductPrice | currency }}</span>
     </p>
   </div>
-  <div class="card-footer justify-content-between">
-    <button *ngIf="productData.AvailablePieces < 5" class="btn btn-success me-2"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
-    <small class="text-muted" *ngIf="productData.AvailablePieces < 5 &&  productData.AvailablePieces > 0">
-      <span class="fw-bold text-danger" *ngIf="productData.AvailablePieces < 5 &&  productData.AvailablePieces > 0"
-        >
-        Low Stock!</span> Only <span class="fw-bold">{{
-        productData.AvailablePieces }}</span> left.
-    </small>
-    <small *ngIf="productData.AvailablePieces >= 5">
-      <span class="fw-bold clr-green"
-        >Available</span> 
-    </small>
-    <small *ngIf="productData.AvailablePieces == 0">
-      <span class="fw-bold text-danger"
-        >Out of stock !</span> 
-    </small>
+  <div class="card-footer justify-content-center">
+   
+    <p class="card-text d-flex justify-content-center align-items-center clr-gray">
+      <span class="fw-normal" >
+      <small class="text-muted" *ngIf="productData.AvailablePieces < 5 && productData.AvailablePieces > 0">
+        <span class="font-bold text-danger" *ngIf="
+            productData.AvailablePieces < 5 && productData.AvailablePieces > 0
+          ">
+          Low Stock!</span>
+        Only
+        <span class="font-bold">{{ productData.AvailablePieces }}</span> pieces left.
+      </small>
+      <small *ngIf="productData.AvailablePieces >= 5">
+        <span class="font-bold ">Available <span class="clr-green">{{ productData.AvailablePieces }}</span> pieces</span>
+      </small>
+      <small *ngIf="productData.AvailablePieces == 0">
+        <span class="font-bold text-danger">Out of stock !</span>
+      </small>
+      <button *ngIf="productData.AvailablePieces < 5" class="btn-link ms-1 p-0 btn text-underline">
+        <i class="fa-solid fa-pen-to-square"></i> 
+      </button>
+    </span>
+      
+    </p>
   </div>
 </div>

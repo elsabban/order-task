@@ -21,7 +21,7 @@
                         <td>{{ order.OrderDate | date :'dd-MMM-yyyy - h:mm a ' }}</td>
                         <td>{{ order.totalPrice | currency }}</td>
                         <td>{{ order.PaymentType }}</td>
-                        <td><button [routerLink]="'/orders/order-detail/' + order.OrderId" class="main-btn btn fw-bold">Show details</button></td>
+                        <td><button [routerLink]="'/orders/order-detail/' + order.OrderId" class="border-btn btn font-bold">Show details</button></td>
                     </tr>
                 </tbody>
             </table>

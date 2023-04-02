@@ -20,7 +20,14 @@
     color: $mainColor;
   }
 }
-
+.border-btn {
+    @extend .main-btn;
+    background-color: $white;
+    color: $mainColor;
+    &:hover {
+        border-color:$mainColor;
+      }
+}
 // utilities
 .img-fit {
     width: 100%;
@@ -32,8 +39,8 @@
   color: #6c757d;
 }
 
-.fw-bold {
-  font-weight: 700;
+.font-bold {
+  font-weight: 600;
 }
 
 .text-warning {
@@ -66,9 +73,23 @@
     min-height: 100vh;
 }
 
+.title-underline {
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 2px;
+        background-color: $mainColor;
+        left: 0;
+        bottom: 0px;
+    }
+}
 // color classes
 .clr-gray {
-    color: gray;
+    color: $gray;
 }
 .clr-red {
     color: $red;

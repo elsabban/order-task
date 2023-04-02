@@ -3,20 +3,20 @@
         <div class="card">
           <div class="card-header d-flex justify-content-between align-items-center">
             <h4>Order #{{ crntOrder?.OrderId }}</h4>
-            <a class="fw-bold back-btn text-decoration-none" routerLink="/orders"><i class="fa-solid fa-angle-left"></i> Back</a>
+            <a class="font-bold back-btn text-decoration-none" routerLink="/orders"><i class="fa-solid fa-angle-left"></i> Back</a>
           </div>
           <div class="card-body">
-            <h5 class="fw-bolder clr-main">Customer Details</h5>
-            <p class="clr-black fw-bold">Name: <span class="clr-gray fw-bold">{{ userData?.Name }}</span></p>
-            <p class="clr-black fw-bold">Email: <span class="clr-gray fw-bold">{{ userData?.Email }}</span></p>
-            <p class="clr-black fw-bold">Phone: <span class="clr-gray fw-bold">{{ userData?.Phone }}</span></p>
-            <p class="clr-black fw-bold">Address: <span class="clr-gray fw-bold">{{ userData?.Address }}</span></p>
-            <p class="clr-black fw-bold">
+            <h5 class="fw-bolder clr-main title-underline">Customer Details</h5>
+            <p class=" font-bold">Name: <span class="clr-gray font-bold">{{ userData?.Name }}</span></p>
+            <p class=" font-bold">Email: <span class="clr-gray font-bold">{{ userData?.Email }}</span></p>
+            <p class=" font-bold">Phone: <span class="clr-gray font-bold">{{ userData?.Phone }}</span></p>
+            <p class=" font-bold">Address: <span class="clr-gray font-bold">{{ userData?.Address }}</span></p>
+            <p class=" font-bold">
               RegisterDate:
-              <span class="clr-gray fw-bold">{{ userData?.RegisterDate | date : "dd-MMM-yyyy - h:mm a " }}</span>
+              <span class="clr-gray font-bold">{{ userData?.RegisterDate | date : "dd-MMM-yyyy - h:mm a " }}</span>
             </p>
             <hr />
-            <h5 class="fw-bolder clr-main">Products Detail</h5>
+            <h5 class="fw-bolder clr-main title-underline">Products Detail</h5>
             <table class="table table-striped">
               <thead>
                 <tr>
