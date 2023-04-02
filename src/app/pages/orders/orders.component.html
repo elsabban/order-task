@@ -1,28 +1,30 @@
-<div class="container">
-    <div class="page-header w-100 d-flex justify-content-between align-items-center">
-        <h2 class="font-bold mb-0">All Orders</h2>
+<main class="page-height">
+    <div class="container">
+        <div class="page-header w-100 d-flex justify-content-between align-items-center">
+            <h2 class="font-bold mb-0">All Orders</h2>
+        </div>
+        <hr class="my-3">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="clr-main">Order ID</th>
+                        <th class="clr-main">Order Date</th>
+                        <th class="clr-main">Total Price</th>
+                        <th class="clr-main">Payment Method</th>
+                        <th class="clr-main">Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of orders">
+                        <td>#{{ order.OrderId }}</td>
+                        <td>{{ order.OrderDate | date :'dd-MMM-yyyy - h:mm a ' }}</td>
+                        <td>{{ order.totalPrice | currency }}</td>
+                        <td>{{ order.PaymentType }}</td>
+                        <td><button [routerLink]="'/orders/order-detail/' + order.OrderId" class="main-btn btn fw-bold">Show details</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <hr class="my-3">
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th class="clr-main">Order ID</th>
-                    <th class="clr-main">Order Date</th>
-                    <th class="clr-main">Total Price</th>
-                    <th class="clr-main">Payment Method</th>
-                    <th class="clr-main">Details</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let order of orders">
-                    <td>#{{ order.OrderId }}</td>
-                    <td>{{ order.OrderDate | date :'dd-MMM-yyyy - h:mm a ' }}</td>
-                    <td>{{ order.totalPrice | currency }}</td>
-                    <td>{{ order.PaymentType }}</td>
-                    <td><button [routerLink]="'/orders/order-detail/' + order.OrderId" class="main-btn btn fw-bold">Show details</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+</main>

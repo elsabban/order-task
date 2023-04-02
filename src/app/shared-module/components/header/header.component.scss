@@ -1,6 +1,7 @@
 @import "./src/assets/styles/variables";
 
 nav {
+    background-color: $gray;
     .navbar-brand {
         img {
             max-width: 200px;

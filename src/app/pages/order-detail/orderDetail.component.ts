@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription, catchError, forkJoin, map, of } from 'rxjs';
-import { GetService } from 'src/app/utilities/services/get.service';
+import { Subscription, map } from 'rxjs';
+import { Order } from 'src/app/utilities/interfaces/order.interface';
+import { Product } from 'src/app/utilities/interfaces/product.interface';
+import { User } from 'src/app/utilities/interfaces/users.interface';
+import { GetDataService } from 'src/app/utilities/services/get-data.service';
 
 @Component({
   selector: 'app-order-detail',
@@ -17,7 +20,7 @@ export class OrderDetailComponent implements OnInit {
   crntOrder: any;
   userData: any;
   productsDetails: any;
-  constructor(private getServ: GetService, private route: ActivatedRoute) {}
+  constructor(private getData: GetDataService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     // get crnt order id from url
@@ -26,8 +29,8 @@ export class OrderDetailComponent implements OnInit {
     });
     
     // get current order from orders array
-    this.getServ.get('orders.json').pipe(map(res => {
-      return res.find((order: any) =>
+    this.getData.getOrders().pipe(map(res => {
+      return res.find((order: Order) =>
         order.OrderId == this.orderId
       )
     })).subscribe({
@@ -47,8 +50,8 @@ export class OrderDetailComponent implements OnInit {
   // handling customer data
   getCustomerData(userId: any) {
     // find related user data from the users array
-    this.getServ.get('users.json').pipe(map(res => {
-      return res.find((user: any) =>
+    this.getData.getCustomers().pipe(map(res => {
+      return res.find((user: User) =>
         user.Id == userId
       )
     })).subscribe({
@@ -61,10 +64,10 @@ export class OrderDetailComponent implements OnInit {
     })
   }
   // handling products data
-  getProductsData(product: any[]) {
-    let orderProducts: any[] = []
+  getProductsData(product: Product[]) {
+    let orderProducts: Product[] = []
     // find related products data from the products array
-    this.getServ.get('products.json').pipe(map(res => {
+    this.getData.getProducts().pipe(map(res => {
       // loop over order's product array 
       product.forEach((item: any) => {
         // get each product detail form original product array

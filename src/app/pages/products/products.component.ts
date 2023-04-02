@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GetService } from 'src/app/utilities/services/get.service';
+import { Product } from 'src/app/utilities/interfaces/product.interface';
+import { GetDataService } from 'src/app/utilities/services/get-data.service';
 
 @Component({
   selector: 'app-order-detail',
@@ -8,14 +9,14 @@ import { GetService } from 'src/app/utilities/services/get.service';
 })
 export class ProductsComponent implements OnInit{
   products!:any[];
-  constructor(private getServ:GetService) {
+  constructor(private getData:GetDataService) {
     }
 
   ngOnInit(): void {
     //http get products data
-    this.getServ.get('products.json').subscribe(
+    this.getData.getProducts().subscribe(
       {
-        next:(res) => {
+        next:(res:Product[]) => {
             this.products = res;
         },
         error:(err) => {

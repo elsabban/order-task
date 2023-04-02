@@ -1,7 +1,10 @@
+@import "./src/assets/styles/variables";
+
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: $gray;
   img {
     max-width: 200px;
   }
